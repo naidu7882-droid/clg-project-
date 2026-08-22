@@ -1,0 +1,25 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Home - Gopi College</title>
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}nav{background:#0b3d91;color:white;padding:12px;display:flex;justify-content:space-between}nav a{color:white;text-decoration:none;margin-left:10px}.hero{background:linear-gradient(135deg,#667eea,#764ba2);color:white;text-align:center;padding:30px}.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}.card{padding:15px;border-radius:12px;text-align:center;color:white;text-decoration:none}.c1{background:linear-gradient(135deg,#667eea,#764ba2)}.c2{background:linear-gradient(135deg,#f093fb,#f5576c)}.c3{background:linear-gradient(135deg,#4facfe,#00f2fe);color:black}.c4{background:linear-gradient(135deg,#43e97b,#38f9d7);color:black}.menu{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:10px}.m{background:white;padding:15px;border-radius:10px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);text-decoration:none;color:black}</style></head>
+<body>
+<script>if(!localStorage.getItem('gopi_login'))location.href='index.html';</script>
+<nav><b id="user">Gopi College</b><div><a href="#" onclick="logout()">Logout</a></div></nav>
+<div class="hero"><h2>Welcome to Gopi College</h2><p id="welcome">Sattenapalle</p></div>
+<div class="menu">
+<a href="teachers.html" class="m"><h2>👨‍🏫</h2>Teachers</a>
+<a href="batches.html" class="m"><h2>👥</h2>Batches</a>
+<a href="#" onclick="alert('Coming Soon')" class="m"><h2>📚</h2>Notes</a>
+<a href="cse.html" class="m"><h2>💻</h2>CSE</a>
+<a href="ece.html" class="m"><h2>📡</h2>ECE</a>
+<a href="mech.html" class="m"><h2>⚙️</h2>MECH</a>
+</div>
+<h3 style="padding:10px">Departments</h3>
+<div class="cards">
+<a href="cse.html" class="card c1">💻<br>CSE<br>120 Seats</a>
+<a href="ece.html" class="card c2">📡<br>ECE<br>90 Seats</a>
+<a href="mech.html" class="card c3">⚙️<br>MECH<br>60 Seats</a>
+<a href="civil.html" class="card c4">🏗️<br>CIVIL<br>60 Seats</a>
+</div>
+<script>
+let u=JSON.parse(localStorage.getItem('gopi_login'));document.getElementById('user').innerText='Hi, '+u.name;document.getElementById('welcome').innerText='Welcome '+u.role+' - '+u.name;
+function logout(){localStorage.removeItem('gopi_login');location.href='index.html';}
+</script></body></html>
