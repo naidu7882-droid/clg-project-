@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Gopi College - Login</title>
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:linear-gradient(135deg,#0b3d91,#ff6a00);min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px}.box{background:white;padding:25px;border-radius:15px;width:100%;max-width:380px;box-shadow:0 10px 30px rgba(0,0,0,0.3)}input{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:8px}.btn{width:100%;padding:12px;background:#0b3d91;color:white;border:none;border-radius:8px;font-weight:bold;margin-top:10px;cursor:pointer}.btn2{background:#ff6a00}a{color:#0b3d91;font-weight:bold;text-decoration:none}</style></head>
+<body><div class="box">
+<h2 style="text-align:center;color:#0b3d91">🔐 Gopi College Login</h2>
+<p style="text-align:center;margin:10px 0">Sattenapalle</p>
+<input id="email" type="email" placeholder="Email">
+<input id="pass" type="password" placeholder="Password">
+<button class="btn" onclick="login()">Login</button>
+<p style="text-align:center;margin-top:15px">Account leda? <a href="signup.html">Signup</a></p>
+</div><script>
+function login(){
+ let e=document.getElementById('email').value;
+ let p=document.getElementById('pass').value;
+ let users=JSON.parse(localStorage.getItem('gopi_users')||'[]');
+ let found=users.find(u=>u.email==e && u.pass==p);
+ if(found){localStorage.setItem('gopi_login',JSON.stringify(found));location.href='home.html'}
+ else{alert('Wrong Email/Password! First Signup chey!')}
+}
+let logged=localStorage.getItem('gopi_login');
+if(logged) location.href='home.html';
+</script></body></html>
