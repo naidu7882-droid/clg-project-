@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Signup</title>
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:linear-gradient(135deg,#ff6a00,#0b3d91);min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px}.box{background:white;padding:25px;border-radius:15px;width:100%;max-width:380px}input,select{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:8px}.btn{width:100%;padding:12px;background:#ff6a00;color:white;border:none;border-radius:8px;font-weight:bold;margin-top:10px}</style></head>
+<body><div class="box">
+<h2 style="text-align:center;color:#0b3d91">📝 Create Account</h2>
+<input id="name" placeholder="Full Name">
+<input id="email" type="email" placeholder="Email">
+<input id="pass" type="password" placeholder="Password">
+<select id="role"><option>Student</option><option>Teacher</option><option>Parent</option></select>
+<button class="btn" onclick="signup()">Signup & Login</button>
+<p style="text-align:center;margin-top:10px"><a href="index.html">Already have account? Login</a></p>
+</div><script>
+function signup(){
+ let n=document.getElementById('name').value, e=document.getElementById('email').value, p=document.getElementById('pass').value, r=document.getElementById('role').value;
+ if(!n||!e||!p){alert('Anni fill chey bro!');return}
+ let users=JSON.parse(localStorage.getItem('gopi_users')||'[]');
+ if(users.find(u=>u.email==e)){alert('Email already exists! Login chey');return}
+ users.push({name:n,email:e,pass:p,role:r});
+ localStorage.setItem('gopi_users',JSON.stringify(users));
+ localStorage.setItem('gopi_login',JSON.stringify({name:n,email:e,role:r}));
+ alert('Signup Success!');location.href='home.html';
+}
+</script></body></html>
